@@ -1,6 +1,7 @@
 package com.cts.memberservice.validator;
 
 import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import com.cts.memberservice.vo.Member;
@@ -20,7 +21,10 @@ public class MemberServiceValidator implements Validator {
 	 */
 	@Override
 	public void validate(Object command, Errors errors) {
-		//Do the validations here
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "memberId", "field.memberid.empty");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "memberName", "field.name.empty");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "subscription", "field.services.empty");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "services", "field.subscription.empty");
 	}
 
 }

@@ -9,6 +9,6 @@
 <title> </title>
 </head>
 <body>
-	 
+	 <spring:message code="subscribe.success" />
 </body>
 </html>
